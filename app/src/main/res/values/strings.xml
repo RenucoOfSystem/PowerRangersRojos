@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Working App</string>
+    <string name="password_indicator">Password</string>
+    <string name="username_indicator">Username</string>
+    <string name="login_indicator">Login</string>
+    <string name="welcome">Welcome</string>
+</resources>
