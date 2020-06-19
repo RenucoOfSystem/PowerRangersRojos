@@ -5,4 +5,7 @@
     <string name="login_indicator">Login</string>
     <string name="welcome">Welcome</string>
     <string name="question_reg">Te registrarás como...</string>
+    <string name="register_indicator">Sign up!</string>
+    <string name="have_account_indicator">Sign in</string>
+
 </resources>
