@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TrabajoApp</string>
+    <string name="password_indicator">Contraseña</string>
+    <string name="username_indicator">Usuario</string>
+    <string name="login_indicator">Entrar</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="register_indicator">Registrate!</string>
+    <string name="have_account_indicator">Entrar</string>
+    <string name="employee_button">Empleado</string>
+    <string name="employer_button">Empleador</string>
+    <string name="question_reg">Te registrarás como...</string>
+</resources>

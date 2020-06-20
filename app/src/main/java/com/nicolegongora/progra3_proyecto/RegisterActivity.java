@@ -43,8 +43,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void fillOptions() {
-        regBut.add(new RegisButton(regBut.size(),"Empleador",R.drawable.ic_employer));
-        regBut.add(new RegisButton(regBut.size(),"Empleado",R.drawable.ic_employee));
+        regBut.add(new RegisButton(regBut.size(),getString(R.string.employer_button),R.drawable.ic_employer));
+        regBut.add(new RegisButton(regBut.size(),getString(R.string.employee_button),R.drawable.ic_employee));
 
     }
 
