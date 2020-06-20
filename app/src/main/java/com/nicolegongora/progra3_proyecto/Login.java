@@ -50,7 +50,7 @@ private static final int SIGN_IN=1;
         if (requestCode==SIGN_IN){
             GoogleSignInResult result=Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()){
-                Toast.makeText(this,"Tu mamá",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Lo lograste",Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this,"Nel",Toast.LENGTH_SHORT).show();
             }
