@@ -9,4 +9,8 @@
     <string name="employee_button">Empleado</string>
     <string name="employer_button">Empleador</string>
     <string name="question_reg">Te registrarás como...</string>
+    <string name="error_empty_value">Lo sentimos, valores para %s son requeridos</string>
+    <string name="error_pasword">Las dos contraseñas no coinciden</string>
+    <string name="error_invalid_value">%s inválido</string>
+    <string name="error_entry">Usuario o contraseña incorrectos</string>
 </resources>

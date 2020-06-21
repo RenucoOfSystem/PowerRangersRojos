@@ -1,7 +1,10 @@
 package com.nicolegongora.progra3_proyecto;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,20 +35,35 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    private void addEvents() {
+        optionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                RegisButton rb = regBut.get(position);
+                if (rb.getId()==1){
+                    Intent intent= new Intent(RegisterActivity.this,FormEmployeeActivity.class);
+                    startActivity(intent);
+                } else if (rb.getId()==2){
+                    Intent intent= new Intent(RegisterActivity.this,FormEmployeeActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+    }
+
     private void initViews() {
         optionListView = findViewById(R.id.optionListView);
         adapter=new OptionAdapter(context,regBut);
         optionListView.setAdapter(adapter);
     }
 
-    private void addEvents() {
-
-    }
 
     private void fillOptions() {
-        regBut.add(new RegisButton(regBut.size(),getString(R.string.employer_button),R.drawable.ic_employer));
-        regBut.add(new RegisButton(regBut.size(),getString(R.string.employee_button),R.drawable.ic_employee));
-
+        regBut.add(new RegisButton(1,getString(R.string.employer_button),R.drawable.ic_employer));
+        regBut.add(new RegisButton(2,getString(R.string.employee_button),R.drawable.ic_employee));
     }
 
 }
+
+
