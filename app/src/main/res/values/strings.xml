@@ -4,5 +4,9 @@
     <string name="username_indicator">Username</string>
     <string name="login_indicator">Login</string>
     <string name="welcome">Welcome</string>
-    <string name="question_reg">Te registrarás como...</string>
+    <string name="question_reg">You will sign up as...</string>
+    <string name="register_indicator">Sign up!</string>
+    <string name="have_account_indicator">Sign in</string>
+    <string name="employee_button">Employee</string>
+    <string name="employer_button">Employer</string>
 </resources>
