@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroundRL"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/addPhoto"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/avatar" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:text="Add photo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <EditText
+                android:id="@+id/registrationName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="Name" />
+
+            <EditText
+                android:id="@+id/registrationLastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="Lastname" />
+
+            <EditText
+                android:id="@+id/registratioAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="Age" />
+
+            <EditText
+                android:id="@+id/registrationCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="Country" />
+
+            <EditText
+                android:id="@+id/registrationPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="phone"
+                android:padding="16dp"
+                android:text="Phone" />
+
+            <EditText
+                android:id="@+id/registrationEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                tools:text="E-mail" />
+
+            <EditText
+                android:id="@+id/registrationBussiness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="16dp"
+                android:text="Bussiness" />
+
+            <TextView
+                android:id="@+id/textViewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Password" />
+
+            <EditText
+                android:id="@+id/registrationPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/textViewPasswordConfirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Password confirmation" />
+
+            <EditText
+                android:id="@+id/registrationPasswordConfirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/buttonRegisterWorker"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Register" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
