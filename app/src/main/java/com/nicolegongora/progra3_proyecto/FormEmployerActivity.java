@@ -109,7 +109,7 @@ public class FormEmployerActivity extends AppCompatActivity {
         parentLinearLayout.addView(passwordConfirmationEditText);
 
         acceptButton = new Button(context);
-        acceptButton.setText("Accept");
+        acceptButton.setText("Sign in");
         parentLinearLayout.addView(passwordConfirmationEditText);
 
         return parentLinearLayout;
