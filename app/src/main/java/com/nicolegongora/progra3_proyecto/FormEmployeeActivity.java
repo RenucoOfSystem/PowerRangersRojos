@@ -42,7 +42,7 @@ public class FormEmployeeActivity extends AppCompatActivity {
         parentLinearLayout = new LinearLayout(context);
         parentLinearLayout.setOrientation(LinearLayout.VERTICAL);
         //parentLinearLayout.setBackgroundColor(getResources().getDrawable(R.drawable.background)); //Revisar si esta bien
-
+//Agregar lo de la foto y crear el otro formulario
         fullNameLinearLayout = new LinearLayout(context);
         fullNameLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
