@@ -9,4 +9,9 @@
     <string name="have_account_indicator">Sign in</string>
     <string name="employee_button">Employee</string>
     <string name="employer_button">Employer</string>
+    <string name="error_empty_value">Sorry, %s value(s) is/are required</string>
+    <string name="error_pasword">Both passwords don\'t coincide</string>
+    <string name="error_invalid_value">Invalid %s</string>
+    <string name="error_entry">Incorrect user or password</string>
+
 </resources>

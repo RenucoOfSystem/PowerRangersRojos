@@ -2,7 +2,6 @@ package com.nicolegongora.progra3_proyecto;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,14 +12,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nicolegongora.progra3_proyecto.model.User;
 import com.nicolegongora.progra3_proyecto.repository.UserRepository;
 
-public class FormEmployeeActivity extends AppCompatActivity{
-
+public class FormEmployerActivity extends AppCompatActivity {
 
     private String country="";
 
@@ -81,6 +78,7 @@ public class FormEmployeeActivity extends AppCompatActivity{
         ageCountryLinearLayout.addView(ageEditText);
 
         countrySpinner = new Spinner(context);
+
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.countries,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         countrySpinner.setAdapter(adapter);
@@ -111,7 +109,7 @@ public class FormEmployeeActivity extends AppCompatActivity{
         parentLinearLayout.addView(passwordConfirmationEditText);
 
         acceptButton = new Button(context);
-        acceptButton.setText("Accept");
+        acceptButton.setText("Sign in");
         parentLinearLayout.addView(passwordConfirmationEditText);
 
         return parentLinearLayout;
@@ -201,7 +199,7 @@ public class FormEmployeeActivity extends AppCompatActivity{
 
 
                 User user= new User(name,username,password,email,country,phoneNumber,aGe);
-                user.setType("Employee");
+                user.setType("Employer");
                 UserRepository.getInstance().register(user);
                 finish();
             }
