@@ -4,13 +4,22 @@
     <string name="username_indicator">Usuario</string>
     <string name="login_indicator">Entrar</string>
     <string name="welcome">Bienvenido</string>
-    <string name="register_indicator">Registrate!</string>
-    <string name="have_account_indicator">Entrar</string>
+    <string name="register_indicator">Registrate</string>
+    <string name="have_account_indicator">Entrar!</string>
     <string name="employee_button">Empleado</string>
     <string name="employer_button">Empleador</string>
     <string name="question_reg">Te registrarás como...</string>
-    <string name="error_empty_value">Lo sentimos, valores para %s son requeridos</string>
+    <string name="error_empty_value">Lo sentimos, ciertos datos son requeridos: %s</string>
     <string name="error_pasword">Las dos contraseñas no coinciden</string>
-    <string name="error_invalid_value">%s inválido</string>
+    <string name="error_invalid_value">Valor(es) inválido: %s</string>
     <string name="error_entry">Usuario o contraseña incorrectos</string>
+    <string name="nameField">Nombre</string>
+    <string name="lastNameField">Apellido</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="ageField">Edad</string>
+    <string name="countryField">País</string>
+    <string name="phoneField">Teléfono</string>
+    <string name="emailField">Correo Electrónico</string>
+    <string name="passwordConfirm">Confirma tu contraseña!</string>
+    <string name="corporateField">Empresa</string>
 </resources>

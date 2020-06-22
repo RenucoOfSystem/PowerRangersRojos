@@ -7,10 +7,11 @@ public class User {
     private transient String password;
     private String email;
     private String type;
-
+    private String corporate;
     private String country;
     private int phone;
     private int age;
+    private String ability;
 
 
 
@@ -87,4 +88,23 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String getCorporate() {
+        return corporate;
+    }
+
+    public void setCorporate(String corporate) {
+        this.corporate=corporate;
+    }
+
+    public void setAbility(String ability) {
+        this.ability=ability;
+    }
+
+    public String getAbility() {
+        return ability;
+    }
+
+
+
 }
