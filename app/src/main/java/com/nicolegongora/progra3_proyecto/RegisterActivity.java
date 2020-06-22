@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 RegisButton rb = regBut.get(position);
                 if (rb.getId()==1){
-                    Intent intent= new Intent(RegisterActivity.this,FormEmployeeActivity.class);
+                    Intent intent= new Intent(RegisterActivity.this,FormEmployerActivity.class);
                     startActivity(intent);
                 } else if (rb.getId()==2){
                     Intent intent= new Intent(RegisterActivity.this,FormEmployeeActivity.class);

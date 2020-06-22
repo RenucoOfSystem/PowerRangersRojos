@@ -4,14 +4,23 @@
     <string name="username_indicator">Username</string>
     <string name="login_indicator">Login</string>
     <string name="welcome">Welcome</string>
-    <string name="question_reg">You will sign up as...</string>
-    <string name="register_indicator">Sign up!</string>
-    <string name="have_account_indicator">Sign in</string>
+    <string name="question_reg">You will sign in as...</string>
+    <string name="register_indicator">Sign in</string>
+    <string name="have_account_indicator">Sign up!</string>
     <string name="employee_button">Employee</string>
     <string name="employer_button">Employer</string>
-    <string name="error_empty_value">Sorry, %s value(s) is/are required</string>
-    <string name="error_pasword">Both passwords don\'t coincide</string>
-    <string name="error_invalid_value">Invalid %s</string>
+    <string name="error_empty_value">Sorry, a/some value(s) is/are required: %s</string>
+    <string name="error_pasword">Both passwords do not coincide</string>
+    <string name="error_invalid_value">Invalid value(s): %s</string>
     <string name="error_entry">Incorrect user or password</string>
+    <string name="nameField">Name</string>
+    <string name="lastNameField">Last name</string>
+    <string name="username">Username</string>
+    <string name="ageField">Age</string>
+    <string name="countryField">Country</string>
+    <string name="phoneField">Phone number</string>
+    <string name="emailField">Email</string>
+    <string name="passwordConfirm">Confirm your password</string>
+    <string name="corporateField">Corporation</string>
 
 </resources>

@@ -2,18 +2,19 @@ package com.nicolegongora.progra3_proyecto;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nicolegongora.progra3_proyecto.model.User;
@@ -26,8 +27,6 @@ public class FormEmployeeActivity extends AppCompatActivity{
 
     private Context context;
     private LinearLayout parentLinearLayout;
-    private LinearLayout fullNameLinearLayout;
-    private LinearLayout ageCountryLinearLayout;
 
     private EditText nameEditText;
     private EditText lastNameEditText;
@@ -39,8 +38,20 @@ public class FormEmployeeActivity extends AppCompatActivity{
     private EditText passwordConfirmationEditText;
     private TextView passwordTextView;
     private TextView passwordConfirmationTextView;
+    private TextView emailTextView;
+    private TextView ageTextView;
+    private TextView phoneTextView;
     private Button acceptButton;
     private EditText usernameEditText;
+    private LinearLayout ageLinearLayout;
+    private TextView countryTextView;
+    private TextView nameTextView;
+    private TextView lastNameTextView;
+    private TextView usernameTextView;
+    private ScrollView scroller;
+    private LinearLayout realparentLinearLayout;
+    private TextView abiilitiesTextView;
+    private EditText abilitiesEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,69 +63,105 @@ public class FormEmployeeActivity extends AppCompatActivity{
 
 
     private View render(){
-        parentLinearLayout = new LinearLayout(context);
+
+        realparentLinearLayout = new LinearLayout(context);
+        realparentLinearLayout.setBackground(getResources().getDrawable(R.drawable.background));
+        realparentLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        realparentLinearLayout.setPadding(50,50,50,50);
+//Agregar lo de la foto
+
+        scroller=new ScrollView(context);
+
+
+        parentLinearLayout= new LinearLayout(context);
         parentLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        parentLinearLayout.setBackground(getResources().getDrawable(R.drawable.background)); //Revisar si esta bien
-//Agregar lo de la foto y crear el otro formulario
-        fullNameLinearLayout = new LinearLayout(context);
-        fullNameLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        parentLinearLayout.setBackground(getResources().getDrawable(R.drawable.style_form_login));
+        parentLinearLayout.setPadding(50,50,50,50);
 
+
+        nameTextView= new TextView(context);
+        nameTextView.setText(getString(R.string.nameField));
+        parentLinearLayout.addView(nameTextView);
         nameEditText = new EditText(context);
-        nameEditText.setText("Name");
-        fullNameLinearLayout.addView(nameEditText);
+        parentLinearLayout.addView(nameEditText);
 
+
+        lastNameTextView = new TextView(context);
+        lastNameTextView.setText(getString(R.string.lastNameField));
+        parentLinearLayout.addView(lastNameTextView);
         lastNameEditText = new EditText(context);
-        lastNameEditText.setText("Last name");
-        fullNameLinearLayout.addView(lastNameEditText);
+        parentLinearLayout.addView(lastNameEditText);
 
-        parentLinearLayout.addView(fullNameLinearLayout);
 
+        usernameTextView = new TextView(context);
+        usernameTextView.setText(getString(R.string.username));
+        parentLinearLayout.addView(usernameTextView);
         usernameEditText = new EditText(context);
-        usernameEditText.setText("Username");
+
         parentLinearLayout.addView(usernameEditText);
 
-        ageCountryLinearLayout = new LinearLayout(context);
-        ageCountryLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
+        ageTextView= new TextView(context);
+        ageTextView.setText(getString(R.string.ageField));
+        parentLinearLayout.addView(ageTextView);
         ageEditText = new EditText(context);
-        ageEditText.setText("Age");
-        ageCountryLinearLayout.addView(ageEditText);
+        parentLinearLayout.addView(ageEditText);
+
+
+        countryTextView= new TextView(context);
+        countryTextView.setText(getString(R.string.countryField));
+        parentLinearLayout.addView(countryTextView);
 
         countrySpinner = new Spinner(context);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.countries,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         countrySpinner.setAdapter(adapter);
-        ageCountryLinearLayout.addView(countrySpinner);
+        parentLinearLayout.addView(countrySpinner);
 
-        parentLinearLayout.addView(ageCountryLinearLayout);
-
+        phoneTextView = new TextView(context);
+        phoneTextView.setText(getString(R.string.phoneField));
+        parentLinearLayout.addView(phoneTextView);
         phoneEditText = new EditText(context);
-        phoneEditText.setText("Phone");
         parentLinearLayout.addView(phoneEditText);
 
+
+        emailTextView = new TextView(context);
+        emailTextView.setText(getString(R.string.emailField));
+        parentLinearLayout.addView(emailTextView);
         emailEditText = new EditText(context);
-        emailEditText.setText("E-mail");
         parentLinearLayout.addView(emailEditText);
 
         passwordTextView = new TextView(context);
-        passwordTextView.setText("Password");
+        passwordTextView.setText(getString(R.string.password_indicator));
         parentLinearLayout.addView(passwordTextView);
-
         passwordEditText = new EditText(context);
+        passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
         parentLinearLayout.addView(passwordEditText);
 
         passwordConfirmationTextView = new TextView(context);
-        passwordConfirmationTextView.setText("Password confirmation");
+        passwordConfirmationTextView.setText(getString(R.string.passwordConfirm));
         parentLinearLayout.addView(passwordConfirmationTextView);
-
         passwordConfirmationEditText = new EditText(context);
+        passwordConfirmationEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
         parentLinearLayout.addView(passwordConfirmationEditText);
+
+        abiilitiesTextView = new TextView(context);
+        abiilitiesTextView.setText(getString(R.string.corporateField));
+        parentLinearLayout.addView(abiilitiesTextView);
+        abilitiesEditText = new EditText(context);
+        parentLinearLayout.addView(abilitiesEditText);
+
+
 
         acceptButton = new Button(context);
-        acceptButton.setText("Accept");
-        parentLinearLayout.addView(passwordConfirmationEditText);
+        acceptButton.setText(getString(R.string.register_indicator));
+        acceptButton.setBackgroundResource(R.color.colorAccent);
+        acceptButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+        parentLinearLayout.addView(acceptButton);
 
-        return parentLinearLayout;
+        realparentLinearLayout.addView(scroller);
+
+        return realparentLinearLayout;
     }
 
     private void addEvents(){
@@ -129,6 +176,7 @@ public class FormEmployeeActivity extends AppCompatActivity{
                 String phone = phoneEditText.getText().toString().trim();
                 String age= ageEditText.getText().toString().trim();
                 String username = usernameEditText.getText().toString().trim();
+                String ability= abilitiesEditText.getText().toString().trim();
 
                 countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -202,11 +250,14 @@ public class FormEmployeeActivity extends AppCompatActivity{
 
                 User user= new User(name,username,password,email,country,phoneNumber,aGe);
                 user.setType("Employee");
+                user.setAbility(ability);
                 UserRepository.getInstance().register(user);
                 finish();
             }
         });
     }
+
+
 
 
 }

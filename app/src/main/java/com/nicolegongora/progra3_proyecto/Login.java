@@ -15,7 +15,7 @@ import com.nicolegongora.progra3_proyecto.repository.UserRepository;
 
 public class Login extends AppCompatActivity {
     private LinearLayout backgroundLinearLayout;
-    private Button loginbutton;
+    private Button loginButton;
     private EditText usernameEditText;
     private EditText passwordEditText;
 
@@ -32,14 +32,14 @@ public class Login extends AppCompatActivity {
 
     private void initViews() {
         backgroundLinearLayout= findViewById(R.id.backgroundRL);
-        loginbutton= findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
         usernameEditText= findViewById(R.id.usernameET);
         passwordEditText=findViewById(R.id.passwordET);
 
     }
 
     private void addEvents() {
-        loginbutton.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = usernameEditText.getText().toString().trim();
