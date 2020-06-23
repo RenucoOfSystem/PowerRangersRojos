@@ -64,9 +64,9 @@ public class MenuActivity extends AppCompatActivity {
 
     private void fillMainMenuWorkerTask() {
 
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Cajero nocturno", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Reparador de computadora", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Guardia diurno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
 
     }
 
@@ -141,10 +141,10 @@ public class MenuActivity extends AppCompatActivity {
                 R.drawable.ic_car, "Revisión de motores",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
         items.add(new MainMenuTask(items.size(), "School Aritmética",
-                R.drawable.ic_refresh, "Reparador de servidores de clases",
+                R.drawable.ic_escuela, "Reparador de servidores de clases",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
         items.add(new MainMenuTask(items.size(), "Super Mercado F. Augusto",
-                R.drawable.ic_refresh, "Revisión de firgoíficos",
+                R.drawable.ic_supermarkets, "Revisión de firgoíficos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
 
     }
