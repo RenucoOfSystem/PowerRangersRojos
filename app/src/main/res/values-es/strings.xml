@@ -22,4 +22,5 @@
     <string name="emailField">Correo Electrónico</string>
     <string name="passwordConfirm">Confirma tu contraseña!</string>
     <string name="corporateField">Empresa</string>
+    <string name="abilitiesField">Habilidades</string>
 </resources>

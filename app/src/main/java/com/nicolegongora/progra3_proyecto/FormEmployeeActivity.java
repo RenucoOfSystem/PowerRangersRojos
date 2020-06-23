@@ -146,7 +146,7 @@ public class FormEmployeeActivity extends AppCompatActivity{
         parentLinearLayout.addView(passwordConfirmationEditText);
 
         abiilitiesTextView = new TextView(context);
-        abiilitiesTextView.setText(getString(R.string.corporateField));
+        abiilitiesTextView.setText(getString(R.string.abilitiesField));
         parentLinearLayout.addView(abiilitiesTextView);
         abilitiesEditText = new EditText(context);
         parentLinearLayout.addView(abilitiesEditText);

@@ -8,8 +8,19 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.ResultCallbacks;
+import com.google.android.gms.common.api.internal.OptionalPendingResultImpl;
 import com.google.gson.Gson;
 import com.nicolegongora.progra3_proyecto.adapter.MainMenuAdapter;
 import com.nicolegongora.progra3_proyecto.adapter.MainMenuEmployeeAdapter;
@@ -21,7 +32,9 @@ import com.nicolegongora.progra3_proyecto.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+
+    private GoogleApiClient googleApiClient;
 
     public static String LOG = MenuActivity.class.getName();
 
@@ -44,6 +57,10 @@ public class MenuActivity extends AppCompatActivity {
         Log.d(LOG, "onCreate");
 
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
+
+
         receiveValues();
         initViews();
         addEvents();
@@ -64,9 +81,9 @@ public class MenuActivity extends AppCompatActivity {
 
     private void fillMainMenuWorkerTask() {
 
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Cajero nocturno", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Reparador de computadora", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Guardia diurno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
 
     }
 
@@ -74,7 +91,40 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(LOG, "onStart");
+
+        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
+        if (opr.isDone()){
+            GoogleSignInResult result = opr.get();
+            handleSignInResult(result);
+        } else {
+            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+
+                @Override
+                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
+                    handleSignInResult(googleSignInResult);
+                }
+            });
+        }
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+        if (result.isSuccess()){
+            GoogleSignInAccount account = result.getSignInAccount();
+            userTextView = findViewById(R.id.name);
+            mainMenuListView = findViewById(R.id.mainMenuListView);
+            adapter2 = new MainMenuEmployeeAdapter(context, items2);
+            mainMenuListView.setAdapter(adapter2);
+            fillMainMenuWorkerTask();
+            userTextView.setText(getString(R.string.welcome) + " " + account.getDisplayName());
+        } else {
+            goLoginScreen();
+        }
+    }
+
+    private void goLoginScreen() {
+        Intent intent = new Intent(this,Login.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -120,7 +170,7 @@ public class MenuActivity extends AppCompatActivity {
             mainMenuListView.setAdapter(adapter);
             fillMainMenuTask();
         }
-        userTextView.setText(R.string.welcome + " " + user.getUsername());
+        userTextView.setText(getString(R.string.welcome) + " " + user.getUsername());
 
     }
 
@@ -141,12 +191,16 @@ public class MenuActivity extends AppCompatActivity {
                 R.drawable.ic_car, "Revisión de motores",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
         items.add(new MainMenuTask(items.size(), "School Aritmética",
-                R.drawable.ic_refresh, "Reparador de servidores de clases",
+                R.drawable.ic_escuela, "Reparador de servidores de clases",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
         items.add(new MainMenuTask(items.size(), "Super Mercado F. Augusto",
-                R.drawable.ic_refresh, "Revisión de firgoíficos",
+                R.drawable.ic_supermarkets, "Revisión de firgoíficos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
 
     }
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
 }
