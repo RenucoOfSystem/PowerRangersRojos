@@ -98,7 +98,7 @@ public class FormEmployerActivity extends AppCompatActivity {
         usernameTextView.setText(getString(R.string.username));
         parentLinearLayout.addView(usernameTextView);
         usernameEditText = new EditText(context);
-        
+
         parentLinearLayout.addView(usernameEditText);
 
 
@@ -162,9 +162,10 @@ public class FormEmployerActivity extends AppCompatActivity {
         acceptButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
         parentLinearLayout.addView(acceptButton);
 
-       realparentLinearLayout.addView(scroller);
+        scroller.addView(parentLinearLayout);
+        realparentLinearLayout.addView(scroller);
 
-       return realparentLinearLayout;
+        return realparentLinearLayout;
     }
 
     private void addEvents(){
@@ -252,7 +253,7 @@ public class FormEmployerActivity extends AppCompatActivity {
 
 
                 User user= new User(name,username,password,email,country,phoneNumber,aGe);
-                user.setType("Employer");
+                user.setType(getString(R.string.employer_button));
                 user.setCorporate(corporate);
                 UserRepository.getInstance().register(user);
                 finish();

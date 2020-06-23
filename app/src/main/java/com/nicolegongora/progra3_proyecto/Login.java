@@ -1,7 +1,9 @@
 package com.nicolegongora.progra3_proyecto;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,10 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.gson.Gson;
 import com.nicolegongora.progra3_proyecto.model.User;
 import com.nicolegongora.progra3_proyecto.repository.UserRepository;
+import com.nicolegongora.progra3_proyecto.utils.Constants;
 
 public class Login extends AppCompatActivity {
+    private GoogleApiClient googleApiClient;
     private LinearLayout backgroundLinearLayout;
     private Button loginButton;
     private EditText usernameEditText;
@@ -23,8 +29,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        getSupportActionBar().hide();
 
         initViews();
         addEvents();
@@ -62,10 +66,17 @@ public class Login extends AppCompatActivity {
                 }
 
 
+                Intent menuIntent = new Intent(Login.this,MenuActivity.class);
+                String userString= new Gson().toJson(userInLog);
+                menuIntent.putExtra(Constants.INTENT_KEY_USER,userString);
+                startActivity(menuIntent);
+
+
+
+
             }
         });
     }
 
 }
-
 
