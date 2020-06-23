@@ -1,13 +1,13 @@
 package com.nicolegongora.progra3_proyecto;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+        import android.content.Intent;
+        import android.graphics.drawable.AnimationDrawable;
+        import android.os.Bundle;
+        import android.os.Handler;
+        import android.view.animation.Animation;
+        import android.widget.ImageView;
 
 public class SplashScreen extends AppCompatActivity {
 

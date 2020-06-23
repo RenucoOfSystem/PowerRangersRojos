@@ -43,9 +43,11 @@ public class RegisterActivity extends AppCompatActivity {
                 if (rb.getId()==1){
                     Intent intent= new Intent(RegisterActivity.this,FormEmployerActivity.class);
                     startActivity(intent);
+                    finish();
                 } else if (rb.getId()==2){
                     Intent intent= new Intent(RegisterActivity.this,FormEmployeeActivity.class);
                     startActivity(intent);
+                    finish();
                 }
 
             }

@@ -17,7 +17,7 @@ public class MainMenuAdapter extends BaseAdapter {
     private Context context;
     private List<MainMenuTask> item;
 
-    public MainMenuAdapter(Context contest, List<MainMenuTask> item){
+    public MainMenuAdapter(Context context, List<MainMenuTask> item){
         this.context = context;
         this.item = item;
     }

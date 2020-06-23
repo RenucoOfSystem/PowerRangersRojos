@@ -12,14 +12,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 import com.nicolegongora.progra3_proyecto.model.User;
 import com.nicolegongora.progra3_proyecto.repository.UserRepository;
 import com.nicolegongora.progra3_proyecto.utils.Constants;
 
 public class Login extends AppCompatActivity {
-    private GoogleApiClient googleApiClient;
     private LinearLayout backgroundLinearLayout;
     private Button loginButton;
     private EditText usernameEditText;
@@ -79,4 +77,5 @@ public class Login extends AppCompatActivity {
     }
 
 }
+
 

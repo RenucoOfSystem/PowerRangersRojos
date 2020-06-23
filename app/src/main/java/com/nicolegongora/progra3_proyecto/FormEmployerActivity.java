@@ -98,7 +98,7 @@ public class FormEmployerActivity extends AppCompatActivity {
         usernameTextView.setText(getString(R.string.username));
         parentLinearLayout.addView(usernameTextView);
         usernameEditText = new EditText(context);
-
+        
         parentLinearLayout.addView(usernameEditText);
 
 
@@ -163,9 +163,9 @@ public class FormEmployerActivity extends AppCompatActivity {
         parentLinearLayout.addView(acceptButton);
 
         scroller.addView(parentLinearLayout);
-        realparentLinearLayout.addView(scroller);
+       realparentLinearLayout.addView(scroller);
 
-        return realparentLinearLayout;
+       return realparentLinearLayout;
     }
 
     private void addEvents(){
