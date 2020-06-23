@@ -162,6 +162,7 @@ public class FormEmployerActivity extends AppCompatActivity {
         acceptButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
         parentLinearLayout.addView(acceptButton);
 
+        scroller.addView(parentLinearLayout);
        realparentLinearLayout.addView(scroller);
 
        return realparentLinearLayout;
@@ -252,7 +253,7 @@ public class FormEmployerActivity extends AppCompatActivity {
 
 
                 User user= new User(name,username,password,email,country,phoneNumber,aGe);
-                user.setType("Employer");
+                user.setType(getString(R.string.employer_button));
                 user.setCorporate(corporate);
                 UserRepository.getInstance().register(user);
                 finish();

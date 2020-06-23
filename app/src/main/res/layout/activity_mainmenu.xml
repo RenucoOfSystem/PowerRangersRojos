@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
     android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/mainMenuUserName_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:padding="10dp"
         android:textSize="22dp"
         android:textStyle="bold"
-        android:padding="10dp"
         tools:text="Juan Chovilla" />
 
     <ImageView
@@ -29,17 +30,18 @@
         android:id="@+id/mainMenuDescription_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="12dp"
+        android:background="@android:color/darker_gray"
         android:padding="10dp"
+        android:textSize="12dp"
         tools:text="decription" />
 
     <LinearLayout
+        android:id="@+id/mainMenuToolBar_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mainMenuToolBar_id"
+        android:background="@android:color/darker_gray"
         android:orientation="horizontal"
         android:padding="16dp">
-
 
 
         <ImageView
@@ -66,4 +68,4 @@
             android:padding="10dp"
             app:srcCompat="@drawable/ic_share" />
     </LinearLayout>
-    </LinearLayout>
+</LinearLayout>

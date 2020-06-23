@@ -2,15 +2,21 @@ package com.nicolegongora.progra3_proyecto;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.nicolegongora.progra3_proyecto.adapter.MainMenuAdapter;
+import com.nicolegongora.progra3_proyecto.adapter.MainMenuEmployeeAdapter;
+import com.nicolegongora.progra3_proyecto.model.MainMenuEmployer;
 import com.nicolegongora.progra3_proyecto.model.MainMenuTask;
+import com.nicolegongora.progra3_proyecto.model.User;
+import com.nicolegongora.progra3_proyecto.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +26,13 @@ public class MenuActivity extends AppCompatActivity {
     public static String LOG = MenuActivity.class.getName();
 
     private Context context;
+    private List<MainMenuEmployer> items2 = new ArrayList<>();
     private List<MainMenuTask> items = new ArrayList<>();
-
+    private User user;
 
     private MainMenuAdapter adapter;
+    private MainMenuEmployeeAdapter adapter2;
+    private TextView userTextView;
     private ListView mainMenuListView;
 
     @Override
@@ -31,12 +40,34 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
 
-        setContentView(R.layout.activity_mainmenu);
+        setContentView(R.layout.activity_mainmenulist);
         Log.d(LOG, "onCreate");
 
+
+        receiveValues();
         initViews();
         addEvents();
-        fillMainMenuTask();
+    }
+
+    private void receiveValues() {
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
+
+            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
+
+            user = new Gson().fromJson(userObj, User.class);
+
+        }
+
+    }
+
+    private void fillMainMenuWorkerTask() {
+
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Cajero nocturno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Reparador de computadora", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_refresh, "Guardia diurno", R.drawable.ic_pencil));
+
     }
 
 
@@ -78,39 +109,44 @@ public class MenuActivity extends AppCompatActivity {
 
 
     private void initViews() {
-        mainMenuListView =  findViewById(R.id.mainMenuListView);
-        adapter = new MainMenuAdapter(context, items);
-        mainMenuListView.setAdapter(adapter);
+        userTextView = findViewById(R.id.name);
+        mainMenuListView = findViewById(R.id.mainMenuListView);
+        if (user.getType().equals(getString(R.string.employer_button))) {
+            adapter2 = new MainMenuEmployeeAdapter(context, items2);
+            mainMenuListView.setAdapter(adapter2);
+            fillMainMenuWorkerTask();
+        } else if (user.getType().equals(getString(R.string.employee_button))) {
+            adapter = new MainMenuAdapter(context, items);
+            mainMenuListView.setAdapter(adapter);
+            fillMainMenuTask();
+        }
+        userTextView.setText(R.string.welcome + " " + user.getUsername());
 
     }
 
     private void addEvents() {
 
+
     }
 
 
     private void fillMainMenuTask() {
-        items.add(new MainMenuTask(items.size(), "Juan Chovilla",
-                R.drawable.ic_refresh, "Description",
+        items.add(new MainMenuTask(items.size(), "Taller La Concha",
+                R.drawable.ic_motor, "Reparador de autos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Pepi Nillo",
-                R.drawable.ic_refresh, "Description",
+        items.add(new MainMenuTask(items.size(), "Pepi Nillo Pizza",
+                R.drawable.ic_pizza, "Reparador de hornos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Nola Hiczeaun",
-                R.drawable.ic_refresh, "Description",
+        items.add(new MainMenuTask(items.size(), "Nola Hiczeaun Motors",
+                R.drawable.ic_car, "Revisión de motores",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Komoseyama",
-                R.drawable.ic_refresh, "Description",
+        items.add(new MainMenuTask(items.size(), "School Aritmética",
+                R.drawable.ic_refresh, "Reparador de servidores de clases",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Super F. Augusto",
-                R.drawable.ic_refresh, "Description",
+        items.add(new MainMenuTask(items.size(), "Super Mercado F. Augusto",
+                R.drawable.ic_refresh, "Revisión de firgoíficos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Juan Chovilla2",
-                R.drawable.ic_refresh, "Description",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Juan Chovilla3",
-                R.drawable.ic_refresh, "Description",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-    }
 
     }
+
+}
