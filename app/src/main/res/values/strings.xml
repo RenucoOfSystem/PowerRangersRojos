@@ -22,5 +22,9 @@
     <string name="emailField">Email</string>
     <string name="passwordConfirm">Confirm your password</string>
     <string name="corporateField">Corporation</string>
+    <string name="abilitiesField">Abilities</string>
+    <string name="requisite">Requirements</string>
+    <string name="apply_now">Apply now!!</string>
+    <string name="work_loctate">Location</string>
 
 </resources>
