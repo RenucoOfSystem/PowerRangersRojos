@@ -26,5 +26,8 @@
     <string name="requisite">Requirements</string>
     <string name="apply_now">Apply now!!</string>
     <string name="work_loctate">Location</string>
+    <string name="to_favorites">Applied works</string>
+    <string name="logOut">Log out</string>
+    <string name="rememberer">Stay logged in</string>
 
 </resources>

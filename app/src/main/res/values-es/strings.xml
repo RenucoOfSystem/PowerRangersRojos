@@ -26,4 +26,7 @@
     <string name="requisite">Requisitos</string>
     <string name="apply_now">¡Inscríbete acá!</string>
     <string name="work_loctate">Ubicación</string>
+    <string name="to_favorites">Trabajos inscritos</string>
+    <string name="logOut">Salir</string>
+    <string name="rememberer">Mantener mi sesión abierta</string>
 </resources>
