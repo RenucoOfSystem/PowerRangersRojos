@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import com.nicolegongora.progra3_proyecto.adapter.MainMenuEmployeeAdapter;
 import com.nicolegongora.progra3_proyecto.model.MainMenuEmployer;
 import com.nicolegongora.progra3_proyecto.model.MainMenuTask;
 import com.nicolegongora.progra3_proyecto.model.User;
+import com.nicolegongora.progra3_proyecto.repository.UserRepository;
 import com.nicolegongora.progra3_proyecto.utils.Constants;
 
 import java.util.ArrayList;
@@ -34,6 +37,8 @@ public class MenuActivity extends AppCompatActivity {
     private MainMenuEmployeeAdapter adapter2;
     private TextView userTextView;
     private ListView mainMenuListView;
+    private Button favoButton;
+    private Button logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,21 +116,21 @@ public class MenuActivity extends AppCompatActivity {
     private void initViews() {
         userTextView = findViewById(R.id.name);
         mainMenuListView = findViewById(R.id.mainMenuListView);
-        if (user.getType().equals(getString(R.string.employer_button))) {
-            adapter2 = new MainMenuEmployeeAdapter(context, items2);
-            mainMenuListView.setAdapter(adapter2);
-            fillMainMenuWorkerTask();
-        } else if (user.getType().equals(getString(R.string.employee_button))) {
-            adapter = new MainMenuAdapter(context, items);
-            mainMenuListView.setAdapter(adapter);
-            fillMainMenuTask();
-        }
-        userTextView.setText(R.string.welcome + " " + user.getUsername());
+        favoButton=findViewById(R.id.favoriteButton);
+        logoutButton=findViewById(R.id.logOut);
+        userTextView.setText(R.string.welcome + ", " +  user.getUsername() + " (" + user.getName() + " ) ");
 
     }
 
     private void addEvents() {
-
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserRepository userRepository= new UserRepository(context);
+                userRepository.deleteUserLogged();
+                finish();
+            }
+        });
 
     }
 

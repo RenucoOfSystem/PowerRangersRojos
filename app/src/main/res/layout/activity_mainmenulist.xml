@@ -14,18 +14,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@color/colorPrimary"
-        android:dividerHeight="1dp" />
+        android:dividerHeight="1dp"
+        android:layout_below="@id/name"/>
+
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/raleway_medium"
         android:text="Hola"
         android:textAlignment="center"
         android:textSize="50dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/favoriteButton"
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_form_buttons"
+            android:text="@string/to_favorites"/>
+        <Button
+            android:id="@+id/logOut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="@drawable/style_form_buttons"
+            android:text="@string/logOut"/>
+
+
+    </LinearLayout>
 
 </RelativeLayout>

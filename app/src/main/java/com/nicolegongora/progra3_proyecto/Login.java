@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -22,14 +23,23 @@ public class Login extends AppCompatActivity {
     private Button loginButton;
     private EditText usernameEditText;
     private EditText passwordEditText;
+    private CheckBox stayloggedCheckBox;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        initViews();
-        addEvents();
+        UserRepository userRepository = new UserRepository(Login.this);
+        User userLogged= userRepository.getUserLogged();
+        if (userLogged!=null){
+            Intent toMenu = new Intent(Login.this,MenuActivity.class);
+            String userString= new Gson().toJson(userLogged);
+            toMenu.putExtra(Constants.INTENT_KEY_USER,userString);
+            startActivity(toMenu);
+        } else {
+            initViews();
+            addEvents();
+        }
     }
 
     private void initViews() {
@@ -57,19 +67,22 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
-                User userInLog= UserRepository.getInstance().login(username,password);
+                UserRepository userRepository = new UserRepository(Login.this);
+                User userInLog= userRepository.login(username,password);
+
                 if (userInLog==null){
                     Toast.makeText(Login.this,getString(R.string.error_entry),Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                if (stayloggedCheckBox.isChecked()){
+                    userRepository.setUserLogged(userInLog);
+                }
 
                 Intent menuIntent = new Intent(Login.this,MenuActivity.class);
                 String userString= new Gson().toJson(userInLog);
                 menuIntent.putExtra(Constants.INTENT_KEY_USER,userString);
                 startActivity(menuIntent);
-
-
 
 
             }
