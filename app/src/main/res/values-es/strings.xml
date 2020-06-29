@@ -22,4 +22,8 @@
     <string name="emailField">Correo Electrónico</string>
     <string name="passwordConfirm">Confirma tu contraseña!</string>
     <string name="corporateField">Empresa</string>
+    <string name="abilitiesField">Habilidades</string>
+    <string name="requisite">Requisitos</string>
+    <string name="apply_now">¡Inscríbete acá!</string>
+    <string name="work_loctate">Ubicación</string>
 </resources>
