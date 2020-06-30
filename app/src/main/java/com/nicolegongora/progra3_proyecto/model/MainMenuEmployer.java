@@ -1,10 +1,22 @@
 package com.nicolegongora.progra3_proyecto.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity (tableName = "menu_employer")
 public class MainMenuEmployer {
+    //Se incrementara solo?? preguntar
+    //@PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private long id;
+    @ColumnInfo(name = "name")
     private String mainMenuUserName_id;
+    @ColumnInfo(name = "descrptiom")
     private String mainMenuDescription_id;
+    @ColumnInfo(name = "image")
     private int mainMenuImage_id;
+    @ColumnInfo(name = "edit")
     private int mainMenuEdit_id;
 
     public MainMenuEmployer(long id, String mainMenuUserName_id,  int mainMenuImage_id,

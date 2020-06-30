@@ -70,9 +70,12 @@ public class MenuActivity extends AppCompatActivity {
   //falta unir
     private void fillMainMenuWorkerTask() {
 
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
+                R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
+                R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
+                R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
 
     }
 

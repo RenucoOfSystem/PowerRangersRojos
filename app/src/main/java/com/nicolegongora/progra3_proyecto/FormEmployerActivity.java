@@ -255,7 +255,8 @@ public class FormEmployerActivity extends AppCompatActivity {
                 User user= new User(name,username,password,email,country,phoneNumber,aGe);
                 user.setType(getString(R.string.employer_button));
                 user.setCorporate(corporate);
-                UserRepository.getInstance().register(user);
+                UserRepository userRepository = new UserRepository(context);
+                userRepository.register(user);
                 finish();
             }
         });
