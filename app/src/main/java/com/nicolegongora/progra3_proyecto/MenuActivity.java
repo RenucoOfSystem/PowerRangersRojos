@@ -180,10 +180,10 @@ public class MenuActivity extends AppCompatActivity {
 
 
     private void fillMainMenuTask(int op) {
-        items.add(new MainMenuTask("Reparador de computadoras", "Pablo Alvarado", R.drawable.ic_computer, "Experiencia en software Windows 10", 68141001, "geo:0,0?q=-16.508285, -68.126612", "Pizza mía"));
-        items.add(new MainMenuTask("Profesor de Matemáticas", "Ena Arkea", R.drawable.ic_escuela, "Experiencia con temas de 4to a 6to de Primaria", 68141001, "geo:0,0?q=-16.506470, -68.118500", "Colegio Santa María"));
+        items.add(new MainMenuTask("Reparador de computadoras", "Pablo Alvarado", R.drawable.ic_computer, "Experiencia en software Windows 10", 76790146, "geo:0,0?q=-16.508285, -68.126612", "Pizza mía"));
+        items.add(new MainMenuTask("Profesor de Matemáticas", "Ena Arkea", R.drawable.ic_escuela, "Experiencia con temas de 4to a 6to de Primaria", 77141001, "geo:0,0?q=-16.506470, -68.118500", "Colegio Santa María"));
         items.add(new MainMenuTask("Mecánico", "Victoria Millan", R.drawable.ic_car, "Conocimiento de motores Honda y Suzuki", 68141001, "geo:0,0?q=-16.509926, -68.118704", "Taller el Nico"));
-        items.add(new MainMenuTask("Delivery", "Pablo Alvarado", R.drawable.ic_motorcycle, "Mayor de 19 años, licencia de conducir y experiencia con motocicletas", 68141001, "geo:0,0?q=-16.508285, -68.126612", "Pizza mía"));
+        items.add(new MainMenuTask("Delivery", "Pablo Alvarado", R.drawable.ic_motorcycle, "Mayor de 19 años, licencia de conducir y experiencia con motocicletas", 76790146, "geo:0,0?q=-16.508285, -68.126612", "Pizza mía"));
 
         if (op==1) {
             for (MainMenuTask tasks : items) {
