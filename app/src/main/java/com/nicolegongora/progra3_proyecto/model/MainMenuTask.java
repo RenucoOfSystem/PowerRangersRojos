@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class MainMenuTask {
 
     //Se incrementara solo?? preguntar
-    //@PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
     @ColumnInfo(name = "name")
@@ -24,10 +24,9 @@ public class MainMenuTask {
     @ColumnInfo(name = "share")
     private int mainMenuShare_id;
 
-    public MainMenuTask(long id, String mainMenuUserName_id,  int mainMenuImage_id,
+    public MainMenuTask( String mainMenuUserName_id,  int mainMenuImage_id,
                         String mainMenuDescription_id,int mainMenuTy_id,
                         int mainMenuBookmark_id,int mainMenuShare_id) {
-        this.id = id;
         this.mainMenuUserName_id = mainMenuUserName_id;
         this.mainMenuDescription_id = mainMenuDescription_id;
         this.mainMenuImage_id = mainMenuImage_id;

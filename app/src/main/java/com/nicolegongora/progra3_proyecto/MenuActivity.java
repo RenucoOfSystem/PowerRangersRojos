@@ -3,6 +3,7 @@ package com.nicolegongora.progra3_proyecto;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -138,21 +139,32 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    public void share(View view){
+
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        String message = "Te recomiendo este trabajo";
+        share.putExtra(android.content.Intent.EXTRA_SUBJECT, "empleos Baja App");
+        share.putExtra(android.content.Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(share, "Compartir vía"));
+
+    }
+
 
     private void fillMainMenuTask() {
-        items.add(new MainMenuTask(items.size(), "Taller La Concha",
+        items.add(new MainMenuTask( "Taller La Concha",
                 R.drawable.ic_motor, "Reparador de autos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Pepi Nillo Pizza",
+        items.add(new MainMenuTask( "Pepi Nillo Pizza",
                 R.drawable.ic_pizza, "Reparador de hornos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Nola Hiczeaun Motors",
+        items.add(new MainMenuTask("Nola Hiczeaun Motors",
                 R.drawable.ic_car, "Revisión de motores",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "School Aritmética",
+        items.add(new MainMenuTask( "School Aritmética",
                 R.drawable.ic_escuela, "Reparador de servidores de clases",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Super Mercado F. Augusto",
+        items.add(new MainMenuTask( "Super Mercado F. Augusto",
                 R.drawable.ic_supermarkets, "Revisión de firgoíficos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
 
