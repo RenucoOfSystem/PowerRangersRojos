@@ -199,7 +199,6 @@ public class MenuActivity extends AppCompatActivity {
                         adapter.setItems(mainMenuTasks);
                         adapter.notifyDataSetChanged();
                         userTextView.setText(getString(R.string.to_favorites));
-                        favoButton.setText(getString(R.string.all_works));
                     }
                 });
             }
