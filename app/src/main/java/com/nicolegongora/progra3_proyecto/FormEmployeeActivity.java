@@ -252,7 +252,7 @@ public class FormEmployeeActivity extends AppCompatActivity{
                 User user= new User(name,username,password,email,country,phoneNumber,aGe);
                 user.setType(getString(R.string.employee_button));
                 user.setAbility(ability);
-                UserRepository userRepository= new UserRepository(context);
+                UserRepository userRepository = new UserRepository(context);
                 userRepository.register(user);
                 finish();
             }

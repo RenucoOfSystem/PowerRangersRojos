@@ -3,10 +3,15 @@ package com.nicolegongora.progra3_proyecto;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,6 +38,7 @@ public class MenuActivity extends AppCompatActivity {
     private List<MainMenuTask> items = new ArrayList<>();
     private User user;
 
+    private boolean userclicked = false;
     private MainMenuAdapter adapter;
     private MainMenuEmployeeAdapter adapter2;
     private TextView userTextView;
@@ -47,6 +53,10 @@ public class MenuActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_mainmenulist);
         Log.d(LOG, "onCreate");
+
+
+
+        favoButton = findViewById(R.id.favoriteButton);
 
 
         receiveValues();
@@ -70,9 +80,12 @@ public class MenuActivity extends AppCompatActivity {
   //falta unir
     private void fillMainMenuWorkerTask() {
 
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística", R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
+                R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
+                R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
+        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
+                R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
 
     }
 
@@ -135,21 +148,45 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    public void share(View view){
+
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        String message = "Te recomiendo este trabajo";
+        share.putExtra(android.content.Intent.EXTRA_SUBJECT, "empleos Wala");
+        share.putExtra(android.content.Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(share, "Compartir vía"));
+
+    }
+
+    public void ty(View view){
+        Resources res = context.getResources();
+        final ImageView image = (ImageView) findViewById(R.id.mainMenuTy_id);
+        if(userclicked){
+            final int newColor = res.getColor(R.color.colorPrimary);
+            userclicked = false;
+        }
+        final int newColor = res.getColor(R.color.colorAccent);
+        image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+        userclicked = true;
+
+    }
+
 
     private void fillMainMenuTask() {
-        items.add(new MainMenuTask(items.size(), "Taller La Concha",
+        items.add(new MainMenuTask( "Taller La Concha",
                 R.drawable.ic_motor, "Reparador de autos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Pepi Nillo Pizza",
+        items.add(new MainMenuTask( "Pepi Nillo Pizza",
                 R.drawable.ic_pizza, "Reparador de hornos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Nola Hiczeaun Motors",
+        items.add(new MainMenuTask("Nola Hiczeaun Motors",
                 R.drawable.ic_car, "Revisión de motores",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "School Aritmética",
+        items.add(new MainMenuTask( "School Aritmética",
                 R.drawable.ic_escuela, "Reparador de servidores de clases",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask(items.size(), "Super Mercado F. Augusto",
+        items.add(new MainMenuTask( "Super Mercado F. Augusto",
                 R.drawable.ic_supermarkets, "Revisión de firgoíficos",
                 R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
 

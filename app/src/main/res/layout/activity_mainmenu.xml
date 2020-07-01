@@ -50,7 +50,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="10dp"
-            app:srcCompat="@drawable/ic_favorite" />
+            android:onClick="ty"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_favorite" /> />
 
         <ImageView
             android:id="@+id/mainMenuBookmark_id"
@@ -58,6 +60,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="10dp"
+            android:tint="@color/colorPrimary"
             app:srcCompat="@drawable/ic_bookmark" />
 
         <ImageView
@@ -66,6 +69,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="10dp"
+            android:onClick="share"
+            android:tint="@color/colorPrimary"
             app:srcCompat="@drawable/ic_share" />
     </LinearLayout>
 </LinearLayout>

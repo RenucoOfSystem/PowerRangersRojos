@@ -1,19 +1,34 @@
 package com.nicolegongora.progra3_proyecto.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity (tableName = "menu_employee")
 public class MainMenuTask {
 
+    //Se incrementara solo?? preguntar
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private long id;
+    @ColumnInfo(name = "name")
     private String mainMenuUserName_id;
+    @ColumnInfo(name = "description")
     private String mainMenuDescription_id;
+    @ColumnInfo(name = "image")
     private int mainMenuImage_id;
+    @ColumnInfo(name = "ty")
     private int mainMenuTy_id;
+    @ColumnInfo(name = "bookmark")
     private int mainMenuBookmark_id;
+    @ColumnInfo(name = "share")
     private int mainMenuShare_id;
+    @ColumnInfo(name = "favorite")
+    private boolean favorite;
 
-    public MainMenuTask(long id, String mainMenuUserName_id,  int mainMenuImage_id,
+    public MainMenuTask( String mainMenuUserName_id,  int mainMenuImage_id,
                         String mainMenuDescription_id,int mainMenuTy_id,
                         int mainMenuBookmark_id,int mainMenuShare_id) {
-        this.id = id;
         this.mainMenuUserName_id = mainMenuUserName_id;
         this.mainMenuDescription_id = mainMenuDescription_id;
         this.mainMenuImage_id = mainMenuImage_id;
