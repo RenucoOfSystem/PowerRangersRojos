@@ -30,4 +30,5 @@
     <string name="logOut">Salir</string>
     <string name="rememberer">Mantener mi sesion abierta</string>
     <string name="inscri">Desinscribirse</string>
+    <string name="all_works">Todos los trabajos</string>
 </resources>

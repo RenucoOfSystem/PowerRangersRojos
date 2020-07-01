@@ -24,7 +24,7 @@ public interface MenuEmployeeDao {
     void updateFavorite(MainMenuTask task);
 
     @Query("SELECT * FROM menu_employee WHERE favorite=:favorite")
-    LiveData<MainMenuTask> getId(boolean favorite);
+    LiveData<List<MainMenuTask>> getFav(boolean favorite);
 
     @Query("SELECT * FROM menu_employee ORDER BY id ASC")
     LiveData<List<MainMenuTask>> getAll();

@@ -29,3 +29,4 @@ public abstract class MenuDb extends RoomDatabase {
         return INSTANCE;
     }
 }
+

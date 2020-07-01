@@ -50,6 +50,9 @@ public class MenuRepositoryEmployee {
         });
         thread.start();
     }
+    public LiveData<List<MainMenuTask>> getFavo(){
+        return db.menuEmployeeDao().getFav(true);
+    }
 
 
 }

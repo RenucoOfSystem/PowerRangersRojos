@@ -30,5 +30,6 @@
     <string name="logOut">Log out</string>
     <string name="rememberer">Stay logged in</string>
     <string name="inscri">Un-apply</string>
+    <string name="all_works">All works</string>
 
 </resources>
