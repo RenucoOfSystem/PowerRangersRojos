@@ -144,7 +144,7 @@ public class MenuActivity extends AppCompatActivity {
         Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("text/plain");
         String message = "Te recomiendo este trabajo";
-        share.putExtra(android.content.Intent.EXTRA_SUBJECT, "empleos Baja App");
+        share.putExtra(android.content.Intent.EXTRA_SUBJECT, "empleos Wala");
         share.putExtra(android.content.Intent.EXTRA_TEXT, message);
         startActivity(Intent.createChooser(share, "Compartir vía"));
 
