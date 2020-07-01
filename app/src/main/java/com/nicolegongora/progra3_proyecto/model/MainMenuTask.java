@@ -23,6 +23,8 @@ public class MainMenuTask {
     private int mainMenuBookmark_id;
     @ColumnInfo(name = "share")
     private int mainMenuShare_id;
+    @ColumnInfo(name = "favorite")
+    private boolean favorite;
 
     public MainMenuTask( String mainMenuUserName_id,  int mainMenuImage_id,
                         String mainMenuDescription_id,int mainMenuTy_id,

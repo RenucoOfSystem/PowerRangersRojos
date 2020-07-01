@@ -3,11 +3,15 @@ package com.nicolegongora.progra3_proyecto;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,6 +38,7 @@ public class MenuActivity extends AppCompatActivity {
     private List<MainMenuTask> items = new ArrayList<>();
     private User user;
 
+    private boolean userclicked = false;
     private MainMenuAdapter adapter;
     private MainMenuEmployeeAdapter adapter2;
     private TextView userTextView;
@@ -48,6 +53,10 @@ public class MenuActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_mainmenulist);
         Log.d(LOG, "onCreate");
+
+
+
+        favoButton = findViewById(R.id.favoriteButton);
 
 
         receiveValues();
@@ -147,6 +156,19 @@ public class MenuActivity extends AppCompatActivity {
         share.putExtra(android.content.Intent.EXTRA_SUBJECT, "empleos Wala");
         share.putExtra(android.content.Intent.EXTRA_TEXT, message);
         startActivity(Intent.createChooser(share, "Compartir vía"));
+
+    }
+
+    public void ty(View view){
+        Resources res = context.getResources();
+        final ImageView image = (ImageView) findViewById(R.id.mainMenuTy_id);
+        if(userclicked){
+            final int newColor = res.getColor(R.color.colorPrimary);
+            userclicked = false;
+        }
+        final int newColor = res.getColor(R.color.colorAccent);
+        image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+        userclicked = true;
 
     }
 
