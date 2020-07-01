@@ -37,5 +37,20 @@ public class MenuRepositoryEmployee {
         public LiveData<List<MainMenuTask>> getAll(){
             return db.menuEmployeeDao().getAll();
         }
+        public LiveData<MainMenuTask> getById(long id){
+        return db.menuEmployeeDao().getById(id);
+        }
+
+    public void updateEntry(final MainMenuTask taskselected) {
+        Thread thread= new Thread(new Runnable() {
+            @Override
+            public void run() {
+                db.menuEmployeeDao().updateFavorite(taskselected);
+            }
+        });
+        thread.start();
     }
+
+
+}
 

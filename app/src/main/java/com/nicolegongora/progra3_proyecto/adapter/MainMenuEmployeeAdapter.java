@@ -16,7 +16,6 @@ import java.util.List;
 public class MainMenuEmployeeAdapter extends BaseAdapter{
 
 
-
         private Context context;
         private List<MainMenuEmployer> item;
 

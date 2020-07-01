@@ -10,7 +10,7 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/mainMenuUserName_id"
+        android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/darker_gray"
@@ -35,42 +35,4 @@
         android:textSize="12dp"
         tools:text="decription" />
 
-    <LinearLayout
-        android:id="@+id/mainMenuToolBar_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-
-        <ImageView
-            android:id="@+id/mainMenuTy_id"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:onClick="ty"
-            android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_favorite" /> />
-
-        <ImageView
-            android:id="@+id/mainMenuBookmark_id"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_bookmark" />
-
-        <ImageView
-            android:id="@+id/mainMenuShare_id"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:onClick="share"
-            android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_share" />
-    </LinearLayout>
 </LinearLayout>

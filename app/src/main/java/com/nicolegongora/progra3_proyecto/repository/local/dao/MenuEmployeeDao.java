@@ -23,12 +23,14 @@ public interface MenuEmployeeDao {
     @Update(onConflict = OnConflictStrategy.IGNORE)
     void updateFavorite(MainMenuTask task);
 
-    @Query("UPDATE menu_employee SET favorite=favorite WHERE id=:id")
-    void  updateFavoriteEntry(long id, boolean favorite);
-
-    @Query("SELECT * FROM menu_employee WHERE favorite=:")
-    LiveData<MainMenuTask> getId(long id);
+    @Query("SELECT * FROM menu_employee WHERE favorite=:favorite")
+    LiveData<MainMenuTask> getId(boolean favorite);
 
     @Query("SELECT * FROM menu_employee ORDER BY id ASC")
     LiveData<List<MainMenuTask>> getAll();
+
+    @Query("SELECT * FROM menu_employee WHERE id=:id")
+    LiveData<MainMenuTask> getById(long id);
+
+
 }

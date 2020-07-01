@@ -11,7 +11,7 @@ import com.nicolegongora.progra3_proyecto.repository.local.dao.MenuEmployeeDao;
 
 
 //ota clase +
-@Database(entities = {MainMenuTask.class}, version = 1)
+@Database(entities = {MainMenuTask.class}, version = 4)
 public abstract class MenuDb extends RoomDatabase {
     public abstract MenuEmployeeDao menuEmployeeDao();
 

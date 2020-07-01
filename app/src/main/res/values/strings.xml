@@ -29,5 +29,6 @@
     <string name="to_favorites">Applied works</string>
     <string name="logOut">Log out</string>
     <string name="rememberer">Stay logged in</string>
+    <string name="inscri">Un-apply</string>
 
 </resources>

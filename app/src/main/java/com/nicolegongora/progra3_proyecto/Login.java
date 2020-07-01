@@ -29,17 +29,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        UserRepository userRepository = new UserRepository(Login.this);
-        User userLogged= userRepository.getUserLogged();
-        if (userLogged!=null){
-            Intent toMenu = new Intent(Login.this,MenuActivity.class);
-            String userString= new Gson().toJson(userLogged);
-            toMenu.putExtra(Constants.INTENT_KEY_USER,userString);
-            startActivity(toMenu);
-        } else {
-            initViews();
-            addEvents();
-        }
+        initViews();
+        addEvents();
     }
 
     private void initViews() {
@@ -47,6 +38,7 @@ public class Login extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         usernameEditText= findViewById(R.id.usernameET);
         passwordEditText=findViewById(R.id.passwordET);
+        stayloggedCheckBox=findViewById(R.id.stayin);
 
     }
 

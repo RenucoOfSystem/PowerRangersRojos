@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/splash"
+    tools:context=".WorkScreenActivity"
 
     >
 
@@ -91,7 +92,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
-                tools:text="@string/corporateField" />
+                android:text="@string/corporateField" />
 
             <TextView
                 android:id="@+id/work_where"
@@ -121,7 +122,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
-                tools:text="@string/requisite" />
+                android:text="@string/requisite" />
 
             <TextView
                 android:id="@+id/work_how"
@@ -153,7 +154,8 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold|italic"
-                tools:text="@string/phoneField" />
+                android:text="@string/phoneField"
+                />
 
             <TextView
                 android:fontFamily="@font/raleway_medium"
@@ -166,7 +168,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold|italic"
-                tools:text="@string/work_loctate" />
+                android:text="@string/work_loctate" />
 
 
         </LinearLayout>
@@ -177,7 +179,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:fontFamily="@font/raleway_medium"
-            android:text="@string/apply_now"/>
+            android:text="@string/apply_now"
+           />
 
     </LinearLayout>
 

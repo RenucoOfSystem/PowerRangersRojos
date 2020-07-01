@@ -7,34 +7,37 @@ import androidx.room.PrimaryKey;
 @Entity (tableName = "menu_employee")
 public class MainMenuTask {
 
-    //Se incrementara solo?? preguntar
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
+    @ColumnInfo(name = "title")
+    private String title;
     @ColumnInfo(name = "name")
-    private String mainMenuUserName_id;
+    private String name;
     @ColumnInfo(name = "description")
-    private String mainMenuDescription_id;
+    private String description;
     @ColumnInfo(name = "image")
-    private int mainMenuImage_id;
-    @ColumnInfo(name = "ty")
-    private int mainMenuTy_id;
-    @ColumnInfo(name = "bookmark")
-    private int mainMenuBookmark_id;
-    @ColumnInfo(name = "share")
-    private int mainMenuShare_id;
+    private int image;
+    @ColumnInfo(name = "telephone")
+    private int telephone;
+    @ColumnInfo(name = "map")
+    private String map;
+    @ColumnInfo(name = "corporate")
+    private String corporate;
     @ColumnInfo(name = "favorite")
     private boolean favorite;
 
-    public MainMenuTask( String mainMenuUserName_id,  int mainMenuImage_id,
-                        String mainMenuDescription_id,int mainMenuTy_id,
-                        int mainMenuBookmark_id,int mainMenuShare_id) {
-        this.mainMenuUserName_id = mainMenuUserName_id;
-        this.mainMenuDescription_id = mainMenuDescription_id;
-        this.mainMenuImage_id = mainMenuImage_id;
-        this.mainMenuTy_id = mainMenuTy_id;
-        this.mainMenuBookmark_id = mainMenuBookmark_id;
-        this.mainMenuShare_id = mainMenuShare_id;
+    public MainMenuTask(String title, String name, int image,
+                        String description, int telephone,
+                        String map, String corporate) {
+        this.title =title;
+        this.name = name;
+        this.description = description;
+        this.image = image;
+        this.telephone = telephone;
+        this.map = map;
+        this.corporate = corporate;
+        this.favorite=false;
     }
 
 
@@ -47,49 +50,71 @@ public class MainMenuTask {
         this.id = id;
     }
 
-    public String getMainMenuUserName_id() {
-        return mainMenuUserName_id;
+    public String getName() {
+        return name;
     }
 
-    public void setMainMenuUserName_id(String mainMenuUserName_id) {
-        this.mainMenuUserName_id = mainMenuUserName_id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMainMenuDescription_id() {
-        return mainMenuDescription_id;
+    public String getDescription() {
+        return description;
     }
 
-    public void setMainMenuDescription_id(String mainMenuDescription_id) {
-        this.mainMenuDescription_id = mainMenuDescription_id;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getMainMenuImage_id() {
-        return mainMenuImage_id;
+    public int getImage() {
+        return image;
     }
 
-    public void setMainMenuImage_id(int mainMenuImage_id) {
-        this.mainMenuImage_id = mainMenuImage_id;
+    public void setImage(int image) {
+        this.image = image;
     }
-    public int getMainMenuTy_id() {
-        return mainMenuTy_id;
-    }
-
-    public void setMainMenuTy_id(int mainMenuTy_id) {
-        this.mainMenuTy_id = mainMenuTy_id;
-    }
-    public int getMainMenuBookmark_id() {
-        return mainMenuBookmark_id;
+    public String getMainMenuTitle_id() {
+        return title;
     }
 
-    public void setMainMenuBookmark_id(int mainMenuBookmark_id) {
-        this.mainMenuBookmark_id = mainMenuBookmark_id;
-    }
-    public int getMainMenuShare_id() {
-        return mainMenuShare_id;
+    public String getTitle() {
+        return title;
     }
 
-    public void setMainMenuShare_id(int mainMenuShare_id) {
-        this.mainMenuShare_id = mainMenuShare_id;
+    public int getTelephone() {
+        return telephone;
+    }
+
+    public String getMap() {
+        return map;
+    }
+
+    public String getCorporate() {
+        return corporate;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setTelephone(int telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setMap(String map) {
+        this.map = map;
+    }
+
+    public void setCorporate(String corporate) {
+        this.corporate = corporate;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }
 

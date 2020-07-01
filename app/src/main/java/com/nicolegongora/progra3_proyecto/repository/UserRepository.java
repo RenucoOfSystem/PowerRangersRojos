@@ -26,6 +26,7 @@ public class UserRepository {
 
     public UserRepository(Context context){
         preferences= PreferenceManager.getDefaultSharedPreferences(context);
+        defaultValues();
     }
 
     public void register(User user){
@@ -54,6 +55,11 @@ public class UserRepository {
         SharedPreferences.Editor editor= preferences.edit();
         editor.remove("user");
         editor.apply();
+    }
+
+    private void defaultValues() {
+        User adminUser = new User("Nicole","Nicky","Torino","nicolita303du@gmail.com","Bolivia",68141001,20);
+        users.add(adminUser);
     }
 
 }

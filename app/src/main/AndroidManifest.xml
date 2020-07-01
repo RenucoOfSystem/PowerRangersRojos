@@ -16,6 +16,7 @@
         <activity android:name=".FormEmployerActivity"></activity>
         <activity android:name=".FormEmployeeActivity"></activity>
         <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".WorkScreenActivity"></activity>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

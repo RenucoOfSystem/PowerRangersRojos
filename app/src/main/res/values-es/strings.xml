@@ -29,4 +29,5 @@
     <string name="to_favorites">Trabajos Inscritos</string>
     <string name="logOut">Salir</string>
     <string name="rememberer">Mantener mi sesion abierta</string>
+    <string name="inscri">Desinscribirse</string>
 </resources>

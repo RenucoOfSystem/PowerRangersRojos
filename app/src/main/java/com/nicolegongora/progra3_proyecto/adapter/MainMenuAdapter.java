@@ -46,12 +46,9 @@ public class MainMenuAdapter extends BaseAdapter {
             LayoutInflater inflater =
                     (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.activity_mainmenu,null);
-            viewHolder.mainMenuUsername_id = view.findViewById(R.id.mainMenuUserName_id);
-            viewHolder.mainMenuImage_id = view.findViewById(R.id.mainMenuImage_id);
-            viewHolder.mainMenuDescription_id = view.findViewById(R.id.mainMenuDescription_id);
-            viewHolder.mainMenuTy_id = view.findViewById(R.id.mainMenuTy_id);
-            viewHolder.mainMenuShare_id = view.findViewById(R.id.mainMenuShare_id);
-            viewHolder.mainMenuBookmark_id = view.findViewById(R.id.mainMenuBookmark_id);
+            viewHolder.mainMenuTitle_id=view.findViewById(R.id.Title);
+            viewHolder.mainMenuImage_id=view.findViewById(R.id.mainMenuImage_id);
+            viewHolder.mainMenuDescription_id=view.findViewById(R.id.mainMenuDescription_id);
 
             view.setTag(viewHolder);
         }else{
@@ -59,24 +56,24 @@ public class MainMenuAdapter extends BaseAdapter {
 
         }
         MainMenuTask task = this.item.get(position);
-        viewHolder.mainMenuUsername_id.setText(task.getMainMenuUserName_id());
-        viewHolder.mainMenuImage_id.setImageResource(task.getMainMenuImage_id());
-        viewHolder.mainMenuDescription_id.setText(task.getMainMenuDescription_id());
-        viewHolder.mainMenuTy_id.setImageResource(task.getMainMenuTy_id());
-        viewHolder.mainMenuShare_id.setImageResource(task.getMainMenuBookmark_id());
-        viewHolder.mainMenuBookmark_id.setImageResource(task.getMainMenuShare_id());
+        viewHolder.mainMenuTitle_id.setText(task.getTitle());
+        viewHolder.mainMenuImage_id.setImageResource(task.getImage());
+        viewHolder.mainMenuDescription_id.setText(task.getDescription());
+
 
         return view;
     }
 
     static class ViewHolder{
-        TextView mainMenuUsername_id;
+        TextView mainMenuTitle_id;
         ImageView mainMenuImage_id;
         TextView mainMenuDescription_id;
-        ImageView mainMenuTy_id;
-        ImageView mainMenuBookmark_id;
-        ImageView mainMenuShare_id;
 
 
+
+    }
+
+    public void setItems(List<MainMenuTask> items){
+        this.item=items;
     }
 }

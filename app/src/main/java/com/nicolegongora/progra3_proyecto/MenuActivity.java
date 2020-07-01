@@ -8,14 +8,17 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.MemoryFile;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import com.google.gson.Gson;
 import com.nicolegongora.progra3_proyecto.adapter.MainMenuAdapter;
@@ -24,6 +27,8 @@ import com.nicolegongora.progra3_proyecto.model.MainMenuEmployer;
 import com.nicolegongora.progra3_proyecto.model.MainMenuTask;
 import com.nicolegongora.progra3_proyecto.model.User;
 import com.nicolegongora.progra3_proyecto.repository.UserRepository;
+import com.nicolegongora.progra3_proyecto.repository.local.MenuRepositoryEmployee;
+import com.nicolegongora.progra3_proyecto.repository.local.db.MenuDb;
 import com.nicolegongora.progra3_proyecto.utils.Constants;
 
 import java.util.ArrayList;
@@ -34,34 +39,43 @@ public class MenuActivity extends AppCompatActivity {
     public static String LOG = MenuActivity.class.getName();
 
     private Context context;
-    private List<MainMenuEmployer> items2 = new ArrayList<>();
     private List<MainMenuTask> items = new ArrayList<>();
     private User user;
 
     private boolean userclicked = false;
     private MainMenuAdapter adapter;
-    private MainMenuEmployeeAdapter adapter2;
     private TextView userTextView;
     private ListView mainMenuListView;
     private Button favoButton;
     private Button logoutButton;
+
+    private MenuRepositoryEmployee menuDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
 
+        menuDb= new MenuRepositoryEmployee(getApplication());
         setContentView(R.layout.activity_mainmenulist);
         Log.d(LOG, "onCreate");
-
-
-
-        favoButton = findViewById(R.id.favoriteButton);
-
 
         receiveValues();
         initViews();
         addEvents();
+        fillMainMenuTask();
+
+        menuDb.getAll().observe(this, new Observer<List<MainMenuTask>>() {
+            @Override
+            public void onChanged(List<MainMenuTask> mainMenuTasks) {
+                items=mainMenuTasks;
+
+                adapter.setItems(mainMenuTasks);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
     }
 
     private void receiveValues() {
@@ -74,18 +88,6 @@ public class MenuActivity extends AppCompatActivity {
             user = new Gson().fromJson(userObj, User.class);
 
         }
-
-    }
-
-  //falta unir
-    private void fillMainMenuWorkerTask() {
-
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
-                R.drawable.ic_computer, "Cajero nocturno", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
-                R.drawable.ic_computer, "Reparador de computadora", R.drawable.ic_pencil));
-        items2.add(new MainMenuEmployer(items2.size(), "Electrónica Artística",
-                R.drawable.ic_computer, "Guardia diurno", R.drawable.ic_pencil));
 
     }
 
@@ -132,7 +134,9 @@ public class MenuActivity extends AppCompatActivity {
         mainMenuListView = findViewById(R.id.mainMenuListView);
         favoButton=findViewById(R.id.favoriteButton);
         logoutButton=findViewById(R.id.logOut);
-        userTextView.setText(R.string.welcome + ", " +  user.getUsername() + " (" + user.getName() + " ) ");
+        userTextView.setText(getString(R.string.welcome) + ", " +  user.getUsername() + " (" + user.getName() + " ) ");
+        adapter=new MainMenuAdapter(context,items);
+        mainMenuListView.setAdapter(adapter);
 
     }
 
@@ -140,56 +144,38 @@ public class MenuActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuDb.deleteAll();
                 UserRepository userRepository= new UserRepository(context);
                 userRepository.deleteUserLogged();
-                finish();
+
+                Intent intent = new Intent(context,SplashScreen.class);
+                startActivity(intent);
+
+            }
+        });
+        mainMenuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainMenuTask task= items.get(position);
+                Intent detailsIntent= new Intent(context,WorkScreenActivity.class);
+                detailsIntent.putExtra("id",task.getId());
+                startActivity(detailsIntent);
             }
         });
 
-    }
-
-    public void share(View view){
-
-        Intent share = new Intent(android.content.Intent.ACTION_SEND);
-        share.setType("text/plain");
-        String message = "Te recomiendo este trabajo";
-        share.putExtra(android.content.Intent.EXTRA_SUBJECT, "empleos Wala");
-        share.putExtra(android.content.Intent.EXTRA_TEXT, message);
-        startActivity(Intent.createChooser(share, "Compartir vía"));
 
     }
 
-    public void ty(View view){
-        Resources res = context.getResources();
-        final ImageView image = (ImageView) findViewById(R.id.mainMenuTy_id);
-        if(userclicked){
-            final int newColor = res.getColor(R.color.colorPrimary);
-            userclicked = false;
-        }
-        final int newColor = res.getColor(R.color.colorAccent);
-        image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
-        userclicked = true;
-
-    }
 
 
     private void fillMainMenuTask() {
-        items.add(new MainMenuTask( "Taller La Concha",
-                R.drawable.ic_motor, "Reparador de autos",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask( "Pepi Nillo Pizza",
-                R.drawable.ic_pizza, "Reparador de hornos",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask("Nola Hiczeaun Motors",
-                R.drawable.ic_car, "Revisión de motores",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask( "School Aritmética",
-                R.drawable.ic_escuela, "Reparador de servidores de clases",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-        items.add(new MainMenuTask( "Super Mercado F. Augusto",
-                R.drawable.ic_supermarkets, "Revisión de firgoíficos",
-                R.drawable.ic_favorite, R.drawable.ic_bookmark, R.drawable.ic_share));
-
+        items.add(new MainMenuTask("Reparador de computadoras", "Pablo Alvarado", R.drawable.ic_computer, "Experiencia en software Windows 10", 68141001, "geo:0,0?q=-16.508285, -68.126612", "Pizza mía"));
+        items.add(new MainMenuTask("Profesor de Matemáticas", "Ena Arkea", R.drawable.ic_escuela, "Experiencia con temas de 4to a 6to de Primaria", 68141001, "geo:0,0?q=-16.506470, -68.118500", "Colegio Santa María"));
+        items.add(new MainMenuTask("Mecánico", "Victoria Millan", R.drawable.ic_car, "Conocimiento de motores Honda y Suzuki", 68141001, "geo:0,0?q=-16.509926, -68.118704", "Taller el Nico"));
+        items.add(new MainMenuTask("Delivery", "Pablo Alvarado", R.drawable.ic_motorcycle, "Mayor de 19 años, licencia de conducir y experiencia con motocicletas", 68141001, "geo:0,0?q=-16.508285, -68.126612", "Pizza mía"));
+        for (MainMenuTask tasks : items) {
+            menuDb.insert(tasks);
+        }
     }
 
 }
